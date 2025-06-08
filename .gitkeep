@@ -1,0 +1,3 @@
+# This file ensures the web directory is tracked by git
+# The web directory is where Amp CLI will generate/modify files
+# These files will be automatically uploaded to FTP when changed
