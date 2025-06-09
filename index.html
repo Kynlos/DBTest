@@ -15,17 +15,23 @@
         
         /* CSS Custom Properties for theming */
         :root {
-            --primary-color: #5865f2;
-            --primary-dark: #4752c4;
-            --secondary-color: #57f287;
-            --background-color: #0f0f23;
-            --background-light: #1a1a3a;
-            --surface-color: #2c2f70;
-            --text-primary: #ffffff;
-            --text-secondary: #b3b8d4;
-            --text-muted: #8892b0;
-            --border-color: #404eed;
-            --shadow-color: rgba(88, 101, 242, 0.1);
+            --primary-color: #d63384;
+            --primary-dark: #b02a5b;
+            --primary-light: #e685a1;
+            --secondary-color: #8b5a6b;
+            --accent-color: #f7a2c0;
+            --background-color: #faf8fc;
+            --background-light: #f5f1f7;
+            --surface-color: #ffffff;
+            --surface-elevated: #f8f4fa;
+            --text-primary: #2c1810;
+            --text-secondary: #6c5b5b;
+            --text-muted: #9b8a8a;
+            --text-inverse: #ffffff;
+            --border-color: #e2d5de;
+            --border-accent: #d63384;
+            --shadow-color: rgba(214, 51, 132, 0.15);
+            --shadow-soft: rgba(44, 24, 16, 0.08);
             --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
@@ -41,7 +47,7 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, var(--background-color) 0%, var(--background-light) 100%);
+            background: linear-gradient(135deg, var(--background-color) 0%, var(--background-light) 50%, var(--surface-elevated) 100%);
             min-height: 100vh;
             color: var(--text-primary);
             line-height: 1.6;
@@ -51,12 +57,13 @@
         
         /* Header */
         .header {
-            background: rgba(44, 47, 112, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 20px var(--shadow-soft);
         }
         
         .nav {
@@ -94,7 +101,7 @@
         }
         
         .nav-link:hover {
-            color: var(--text-primary);
+            color: var(--primary-color);
         }
         
         .nav-link::after {
@@ -129,7 +136,7 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--secondary-color) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -147,8 +154,8 @@
         }
         
         .hero-description {
-            background: rgba(44, 47, 112, 0.6);
-            backdrop-filter: blur(10px);
+            background: var(--surface-color);
+            backdrop-filter: blur(15px);
             border-radius: 1rem;
             padding: 2rem;
             margin: 3rem auto;
@@ -156,6 +163,7 @@
             border: 1px solid var(--border-color);
             font-size: 1.1rem;
             color: var(--text-secondary);
+            box-shadow: 0 8px 32px var(--shadow-soft);
         }
         
         /* CTA Buttons */
@@ -183,26 +191,27 @@
         }
         
         .btn-primary {
-            background: var(--primary-color);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--text-inverse);
             box-shadow: 0 4px 14px var(--shadow-color);
         }
         
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px var(--shadow-color);
+            box-shadow: 0 8px 25px var(--shadow-color);
         }
         
         .btn-secondary {
-            background: transparent;
+            background: var(--surface-color);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
         }
         
         .btn-secondary:hover {
-            background: var(--surface-color);
-            border-color: var(--primary-color);
+            background: var(--surface-elevated);
+            border-color: var(--border-accent);
+            box-shadow: 0 4px 14px var(--shadow-soft);
         }
         
         /* Features Grid */
@@ -226,20 +235,21 @@
         }
         
         .feature-card {
-            background: rgba(44, 47, 112, 0.6);
-            backdrop-filter: blur(10px);
+            background: var(--surface-color);
+            backdrop-filter: blur(15px);
             border-radius: 1rem;
             padding: 2rem;
             border: 1px solid var(--border-color);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 16px var(--shadow-soft);
         }
         
         .feature-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--primary-color);
-            box-shadow: 0 8px 25px var(--shadow-color);
+            transform: translateY(-4px);
+            border-color: var(--border-accent);
+            box-shadow: 0 12px 32px var(--shadow-color);
         }
         
         .feature-icon {
@@ -262,32 +272,34 @@
         
         /* Status Section */
         .status {
-            background: rgba(87, 242, 135, 0.1);
-            border: 1px solid var(--secondary-color);
+            background: linear-gradient(135deg, var(--surface-color) 0%, var(--surface-elevated) 100%);
+            border: 1px solid var(--accent-color);
             border-radius: 1rem;
             padding: 1.5rem;
             margin: 3rem 0;
             text-align: center;
             font-weight: 500;
+            box-shadow: 0 4px 16px var(--shadow-soft);
         }
         
         .status-indicator {
             display: inline-block;
             width: 12px;
             height: 12px;
-            background: var(--secondary-color);
+            background: var(--primary-color);
             border-radius: 50%;
             margin-right: 0.75rem;
-            box-shadow: 0 0 10px rgba(87, 242, 135, 0.5);
+            box-shadow: 0 0 12px var(--shadow-color);
         }
         
         /* How it Works */
         .how-it-works {
             padding: 4rem 0;
-            background: rgba(44, 47, 112, 0.3);
+            background: linear-gradient(135deg, var(--surface-elevated) 0%, var(--background-light) 100%);
             border-radius: 1rem;
             margin: 3rem 0;
             border: 1px solid var(--border-color);
+            box-shadow: 0 4px 16px var(--shadow-soft);
         }
         
         .how-it-works .container {
@@ -303,13 +315,14 @@
         }
         
         .command {
-            background: rgba(0, 0, 0, 0.4);
+            background: var(--surface-color);
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
             font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            color: var(--secondary-color);
+            color: var(--text-primary);
             font-weight: 600;
-            border: 1px solid rgba(87, 242, 135, 0.3);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px var(--shadow-soft);
         }
         
         /* Responsive Design */
@@ -393,6 +406,7 @@
         .nav-link:focus {
             outline: 2px solid var(--primary-color);
             outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(214, 51, 132, 0.2);
         }
         
         /* High contrast mode support */
@@ -430,6 +444,7 @@
                 <li><a href="#features" class="nav-link">Features</a></li>
                 <li><a href="#how-it-works" class="nav-link">How it Works</a></li>
                 <li><a href="#status" class="nav-link">Status</a></li>
+                <li><a href="pacman.html" class="nav-link">Pacman</a></li>
             </ul>
         </nav>
     </header>
