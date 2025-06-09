@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Collab Code</title>
+    <title>🚀 Discord Collab Code - WILD EDITION</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Fredoka:wght@300;400;500;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,187 +14,402 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(45deg, #ff0066, #ff6600, #ffcc00, #66ff00, #0066ff, #6600ff);
+            background-size: 400% 400%;
+            animation: rainbow-wave 8s ease infinite;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
             color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 0, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+            animation: float-bubbles 12s ease-in-out infinite;
+        }
+        
+        @keyframes rainbow-wave {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes float-bubbles {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
         
         h1 {
-            font-size: 3rem;
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.8),
+                0 0 40px rgba(255, 0, 255, 0.6),
+                0 0 80px rgba(0, 255, 255, 0.4);
+            animation: disco-text 3s ease-in-out infinite;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @keyframes disco-text {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(-2deg); }
+            75% { transform: scale(1.05) rotate(2deg); }
         }
         
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            font-weight: 600;
+            animation: bounce-in 2s ease-out;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes bounce-in {
+            0% { transform: translateY(-100px); opacity: 0; }
+            60% { transform: translateY(10px); }
+            100% { transform: translateY(0); opacity: 1; }
         }
         
         .description {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.3), rgba(0, 255, 255, 0.3));
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 
+                0 0 30px rgba(255, 0, 255, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: glow-pulse 4s ease-in-out infinite;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        @keyframes glow-pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 0, 255, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1); }
+            50% { box-shadow: 0 0 50px rgba(0, 255, 255, 0.8), inset 0 0 50px rgba(255, 255, 255, 0.2); }
         }
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
         
         .feature-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 1.5rem;
-            transition: transform 0.3s ease;
+            background: linear-gradient(45deg, 
+                rgba(255, 100, 255, 0.4) 0%,
+                rgba(100, 255, 255, 0.4) 50%,
+                rgba(255, 255, 100, 0.4) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+        
+        .feature-card:hover::before {
+            animation: shimmer 1.5s ease-in-out;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-15px) scale(1.05) rotate(2deg);
+            box-shadow: 
+                0 20px 40px rgba(255, 0, 255, 0.4),
+                0 0 60px rgba(0, 255, 255, 0.3);
         }
         
         .feature-icon {
-            font-size: 2rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            animation: icon-spin 6s linear infinite;
+            display: inline-block;
+        }
+        
+        @keyframes icon-spin {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.2); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
             margin-bottom: 1rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
         
         .status {
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-top: 2rem;
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.4), rgba(0, 255, 255, 0.4));
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            border: 2px solid rgba(0, 255, 0, 0.5);
+            animation: status-glow 3s ease-in-out infinite;
+            font-weight: 600;
+        }
+        
+        @keyframes status-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.8); }
         }
         
         .status-indicator {
             display: inline-block;
-            width: 12px;
-            height: 12px;
-            background: #4CAF50;
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, #00ff00, #00ff88);
             border-radius: 50%;
-            margin-right: 10px;
-            animation: pulse 2s infinite;
+            margin-right: 15px;
+            animation: mega-pulse 1.5s infinite;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
         }
         
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+        @keyframes mega-pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
         }
         
         .cta-button {
-            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            background: linear-gradient(45deg, #ff0066, #ff6600, #ffcc00, #66ff00, #0066ff, #6600ff, #ff0066);
+            background-size: 500% 500%;
+            animation: rainbow-button 4s ease infinite;
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
+            padding: 20px 40px;
+            font-size: 1.4rem;
+            font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: 2rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes rainbow-button {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .cta-button::before {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            left: -30px;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            animation: sparkle-move 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle-move {
+            0% { left: -30px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { left: calc(100% + 10px); opacity: 0; }
         }
         
         .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: scale(1.15) rotate(-5deg);
+            box-shadow: 
+                0 20px 50px rgba(255, 0, 255, 0.8),
+                0 0 100px rgba(0, 255, 255, 0.6);
+        }
+        
+        .how-it-works {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.3), rgba(255, 0, 255, 0.3));
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: gentle-float 6s ease-in-out infinite;
+        }
+        
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .how-it-works code {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        .floating-emojis {
+            position: fixed;
+            font-size: 2rem;
+            animation: float-around 20s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes float-around {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        
+        .floating-emojis:nth-child(odd) {
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+        
+        .floating-emojis:nth-child(even) {
+            animation-duration: 18s;
+            animation-delay: -10s;
         }
     </style>
 </head>
 <body>
+    <!-- Floating Emojis -->
+    <div class="floating-emojis" style="left: 10%;">💻</div>
+    <div class="floating-emojis" style="left: 20%;">🎉</div>
+    <div class="floating-emojis" style="left: 80%;">🚀</div>
+    <div class="floating-emojis" style="left: 70%;">⭐</div>
+    <div class="floating-emojis" style="left: 30%;">🌈</div>
+    <div class="floating-emojis" style="left: 60%;">🔥</div>
+    <div class="floating-emojis" style="left: 90%;">✨</div>
+
     <div class="container">
-        <h1>🚀 Discord Collab Code</h1>
-        <p class="subtitle">Build websites together, right from your Discord chat!</p>
+        <h1>🚀 DISCORD COLLAB CODE 🚀</h1>
+        <p class="subtitle">✨ Build EPIC websites together from your Discord chat! ✨</p>
         
         <div class="description">
-            <p>Transform your Discord server into a collaborative coding workspace. Team up with friends to create websites using simple chat commands - no complex tools required!</p>
+            <p>🎮 Transform your Discord server into the ULTIMATE collaborative coding playground! Team up with friends to create absolutely WILD websites using simple chat commands - NO boring tools required! 🎮</p>
         </div>
         
         <div class="features">
             <div class="feature-card">
                 <div class="feature-icon">💬</div>
-                <h3>Chat-Based Coding</h3>
-                <p>Write code directly in Discord using simple commands and watch your website come to life</p>
+                <h3>Chat-Based MAGIC</h3>
+                <p>Type code directly in Discord and watch your website EXPLODE into existence!</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">👥</div>
-                <h3>Real-Time Collaboration</h3>
-                <p>Multiple team members can contribute simultaneously, with changes visible instantly</p>
+                <h3>INSANE Collaboration</h3>
+                <p>Your entire squad can code together in REAL-TIME - it's like a coding party that never stops!</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
-                <h3>Instant Preview</h3>
-                <p>See your changes live as you build - no waiting, no complex deployment process</p>
+                <h3>LIGHTNING Preview</h3>
+                <p>See changes INSTANTLY - faster than you can say "rainbow unicorn coding wizard"!</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
-                <h3>Easy Styling</h3>
-                <p>Add CSS styles and JavaScript interactions with simple Discord commands</p>
+                <h3>WILD Styling</h3>
+                <p>Add mind-blowing CSS and JavaScript with Discord commands - make it OUTRAGEOUS!</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
-                <h3>Version Control</h3>
-                <p>Every change is tracked and saved - easily revert or branch your projects</p>
+                <h3>Time-Travel Control</h3>
+                <p>Every change is saved - go back in time to any version like a coding time lord!</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🌐</div>
-                <h3>Live Hosting</h3>
-                <p>Your websites are automatically deployed and hosted with shareable links</p>
+                <h3>COSMIC Hosting</h3>
+                <p>Your sites auto-deploy to the UNIVERSE with shareable links!</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">📱</div>
-                <h3>Mobile Friendly</h3>
-                <p>Test and preview your sites on different devices right from Discord</p>
+                <h3>Multi-Dimensional Testing</h3>
+                <p>Test on ALL devices from Discord - desktop, mobile, maybe even smart fridges!</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🛠️</div>
-                <h3>Template Library</h3>
-                <p>Start with pre-built templates or share your creations with the community</p>
+                <h3>LEGENDARY Templates</h3>
+                <p>Start with epic templates or share your masterpieces with the coding community!</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3>Analytics</h3>
-                <p>Track visitor stats and performance metrics for your collaborative projects</p>
+                <h3>PSYCHIC Analytics</h3>
+                <p>Track visitor stats and performance like you're reading the future!</p>
             </div>
         </div>
         
         <div class="status">
             <span class="status-indicator"></span>
-            <strong>Status:</strong> Ready for collaborative coding! Invite your team to start building.
+            <strong>STATUS:</strong> 🔥 READY TO ROCK! 🔥 Invite your coding squad and start building LEGENDARY websites!
         </div>
         
-        <a href="#" class="cta-button" onclick="alert('Discord bot integration coming soon!')">
-            Start Collaborating
+        <a href="#" class="cta-button" onclick="alert('🚀 PREPARE FOR LAUNCH! Discord bot integration incoming! 🚀')">
+            🎉 START THE CODING PARTY! 🎉
         </a>
         
-        <div style="margin-top: 2rem; opacity: 0.8;">
-            <p>🔧 <strong>How it works:</strong></p>
-            <p>Use Discord commands like <code>/add-html</code>, <code>/add-css</code>, and <code>/preview</code> to build your site together!</p>
+        <div class="how-it-works">
+            <p>🔧 <strong>HOW THE MAGIC WORKS:</strong></p>
+            <p>Use EPIC Discord commands like <code>/add-html</code>, <code>/add-css</code>, and <code>/preview</code> to build your LEGENDARY site together!</p>
+            <p>🌟 Type, create, collaborate, and watch the MAGIC happen! 🌟</p>
         </div>
     </div>
 </body>
